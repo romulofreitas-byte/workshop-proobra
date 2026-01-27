@@ -10,9 +10,11 @@ import { DollarSign, Video, Users, CreditCard, QrCode, FileText } from 'lucide-r
 import { trackCTAClick } from '@/lib/metaPixel'
 
 export default function InvestmentSection() {
+  const PAYMENT_LINK = 'https://pag.ae/81scCkfpp'
+  
   const handleCTAClick = () => {
     trackCTAClick('Investment - Garanta sua vaga')
-    // Adicionar lógica de redirecionamento ou modal
+    window.open(PAYMENT_LINK, '_blank')
   }
 
   // Sincronizado com o hero - mesma porcentagem
@@ -161,14 +163,16 @@ export default function InvestmentSection() {
 
             {/* CTA */}
             <div className="text-center">
-              <Button
-                variant="cta"
-                size="lg"
-                onClick={handleCTAClick}
-                className="w-full md:w-auto"
-              >
-                Garanta sua vaga agora
-              </Button>
+              <a href={PAYMENT_LINK} target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="cta"
+                  size="lg"
+                  onClick={handleCTAClick}
+                  className="w-full md:w-auto"
+                >
+                  Garanta sua vaga agora
+                </Button>
+              </a>
             </div>
           </Card>
         </motion.div>

@@ -7,9 +7,11 @@ import { ArrowRight, Mail, Calendar } from 'lucide-react'
 import { trackCTAClick } from '@/lib/metaPixel'
 
 export default function FinalCTAWorkshopSection() {
+  const PAYMENT_LINK = 'https://pag.ae/81scCkfpp'
+  
   const handleCTAClick = () => {
     trackCTAClick('Final CTA - Garanta sua vaga')
-    // Adicionar lógica de redirecionamento ou modal
+    window.open(PAYMENT_LINK, '_blank')
   }
 
   return (
@@ -44,20 +46,22 @@ export default function FinalCTAWorkshopSection() {
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <Button
-            variant="cta"
-            size="lg"
-            onClick={handleCTAClick}
-            className="w-full sm:w-auto"
-          >
-            Garanta sua vaga agora
-            <motion.span
-              animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
+          <a href={PAYMENT_LINK} target="_blank" rel="noopener noreferrer">
+            <Button
+              variant="cta"
+              size="lg"
+              onClick={handleCTAClick}
+              className="w-full sm:w-auto"
             >
-              <ArrowRight className="ml-2 w-5 h-5 inline-block" />
-            </motion.span>
-          </Button>
+              Garanta sua vaga agora
+              <motion.span
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
+              >
+                <ArrowRight className="ml-2 w-5 h-5 inline-block" />
+              </motion.span>
+            </Button>
+          </a>
         </motion.div>
 
         <motion.div 

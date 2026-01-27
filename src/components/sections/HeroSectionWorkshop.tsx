@@ -8,9 +8,10 @@ import { trackCTAClick } from '@/lib/metaPixel'
 import ProtectedImage from '@/components/ui/ProtectedImage'
 
 export default function HeroSectionWorkshop() {
+  const PAYMENT_LINK = 'https://pag.ae/81scCkfpp'
+  
   const handleCTAClick = () => {
     trackCTAClick('Hero - Garanta sua vaga')
-    // Adicionar lógica de redirecionamento ou modal
   }
 
   const progressPercentage = 18
@@ -139,6 +140,9 @@ export default function HeroSectionWorkshop() {
           {/* CTA Mobile */}
           <motion.div variants={itemVariants}>
             <motion.a
+              href={PAYMENT_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={handleCTAClick}
               className="group relative inline-flex items-center justify-center px-5 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-proobra-orange to-[#d8891f] text-white font-black text-sm sm:text-base rounded-full hover:from-[#d8891f] hover:to-proobra-orange transition-all duration-300 shadow-2xl hover:shadow-proobra-orange/40 hover:scale-105 button-shine-effect cursor-pointer w-full"
               whileHover={{ scale: 1.05 }}
@@ -226,6 +230,9 @@ export default function HeroSectionWorkshop() {
               variants={itemVariants}
             >
               <motion.a
+                href={PAYMENT_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={handleCTAClick}
                 className="group relative inline-flex items-center justify-center px-5 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-proobra-orange to-[#d8891f] text-white font-black text-sm sm:text-base rounded-full hover:from-[#d8891f] hover:to-proobra-orange transition-all duration-300 shadow-2xl hover:shadow-proobra-orange/40 button-shine-effect cursor-pointer"
                 whileHover={{ scale: 1.05 }}
