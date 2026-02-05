@@ -2,13 +2,11 @@
 
 import { MessageCircle } from 'lucide-react'
 
-const WHATSAPP_NUMBER = '5511999999999' // Substituir pelo número correto
-const WHATSAPP_MESSAGE = 'Olá! Gostaria de saber mais sobre o Workshop PROOBRA.'
+const WHATSAPP_GROUP_LINK = 'https://chat.whatsapp.com/C3S03IRnJ2l0ocKsTbPDzI'
 
 export default function FloatingWhatsAppButton() {
   const handleClick = () => {
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
-    window.open(url, '_blank')
+    window.open(WHATSAPP_GROUP_LINK, '_blank')
   }
 
   return (
