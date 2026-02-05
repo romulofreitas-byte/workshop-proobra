@@ -31,10 +31,10 @@ export default function InvestmentSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Por que este workshop custa menos do que um erro na obra
+            Por que este workshop custa menos do que um erro de orçamento
           </h2>
           <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-            Uma única falha de controle (material comprado errado, custo não previsto, orçamento mal feito) costuma custar muito mais do que o valor deste workshop.
+            Um único item esquecido no orçamento, um serviço mal calculado ou um material sem preço definido costuma custar muito mais do que o valor deste workshop.
           </p>
         </motion.div>
 

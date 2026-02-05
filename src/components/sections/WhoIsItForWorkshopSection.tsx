@@ -7,17 +7,17 @@ import AnimatedCard from '@/components/ui/AnimatedCard'
 import { Check, X, Star, Target, Users, Briefcase, TrendingUp, AlertCircle } from 'lucide-react'
 
 const forWho = [
-  { text: 'Engenheiros civis', icon: Target },
-  { text: 'Arquitetos', icon: Users },
-  { text: 'Empreiteiros', icon: Briefcase },
-  { text: 'Profissionais que gerenciam obras', icon: Users },
-  { text: 'Quem quer ganhar clareza, controle e margem', icon: TrendingUp },
+  { text: 'Profissionais que orçam reformas', icon: Target },
+  { text: 'Engenheiros civis e arquitetos', icon: Users },
+  { text: 'Empreiteiros e construtores', icon: Briefcase },
+  { text: 'Quem quer segurança ao passar orçamento', icon: TrendingUp },
+  { text: 'Quem busca lucro garantido nas obras', icon: TrendingUp },
 ]
 
 const notFor = [
+  { text: 'Quem acha que orçamento é só passar preço', icon: AlertCircle },
+  { text: 'Quem não quer padronizar seu processo', icon: AlertCircle },
   { text: 'Quem busca atalhos mágicos', icon: AlertCircle },
-  { text: 'Quem não quer mudar a forma de pensar', icon: AlertCircle },
-  { text: 'Quem acredita que gestão é burocracia', icon: AlertCircle },
 ]
 
 export default function WhoIsItForWorkshopSection() {

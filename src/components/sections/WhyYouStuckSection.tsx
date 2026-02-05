@@ -7,24 +7,24 @@ import { AlertTriangle } from 'lucide-react'
 
 const problems = [
   {
-    title: 'Orçamentos feitos no achismo',
+    title: 'Insegurança ao passar orçamento',
     description:
-      'Sem estruturação adequada, os orçamentos são baseados em estimativas que não refletem a realidade.',
+      'Medo de passar um orçamento e depois descobrir que esqueceu algo crucial que vai corroer seu lucro.',
   },
   {
-    title: 'Custos que aparecem tarde demais',
+    title: 'Falta de padronização',
     description:
-      'Gastos imprevistos só aparecem quando já impactam diretamente o lucro da obra.',
+      'Cada um orça de um jeito, e a falta de um método claro é o maior ladrão do seu lucro.',
   },
   {
-    title: 'Falta de clareza para explicar números ao cliente',
+    title: 'Variáveis infinitas',
     description:
-      'Dificuldade em justificar valores e mudanças, gerando desconfiança e conflitos.',
+      'Obras de reforma são um universo de variáveis. Como controlar o incontrolável sem um método?',
   },
   {
-    title: 'Lucro corroído por pequenos erros acumulados',
+    title: 'Objetivo mal compreendido',
     description:
-      'Pequenos descontroles se somam e corroem o lucro de forma silenciosa.',
+      'Se você acha que orçamento é só para o cliente saber quanto vai pagar, você está perdendo dinheiro.',
   },
 ]
 
@@ -64,12 +64,12 @@ export default function WhyYouStuckSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            O problema não é a obra.
+            O problema não é a reforma.
             <br />
-            <span className="highlight-text">É a falta de método.</span>
+            <span className="highlight-text">É a falta de método para orçar.</span>
           </h2>
           <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-            A maioria dos profissionais luta contra os mesmos problemas. Mas o problema real não está na execução, e sim na forma como a obra é gerida.
+            A maioria dos profissionais luta contra os mesmos problemas. Mas o problema real não está na execução, e sim na forma como você orça suas reformas.
           </p>
         </motion.div>
 

@@ -58,7 +58,7 @@ export default function AboutGabrielProobraSection() {
                   <div className="relative p-2 rounded-full bg-gradient-to-r from-proobra-orange via-proobra-blue-light to-proobra-orange">
                     <div className="relative rounded-full overflow-hidden bg-gray-900 p-1">
                       <ProtectedImage
-                        src="/gabriel-gelape.jpg"
+                        src="/gabriel-mentor.jpg"
                         alt={WORKSHOP_INFO.mentor}
                         width={320}
                         height={320}
@@ -115,8 +115,8 @@ export default function AboutGabrielProobraSection() {
                     transition={{ duration: 0.6, delay: 0.7 }}
                   >
                     <p className="text-gray-300 text-lg leading-relaxed">
-                      Engenheiro Civil com vivência real em campo, atuando diretamente na gestão de obras. Criador do{' '}
-                      <span className="text-proobra-orange font-semibold">Método PROOBRA</span>, desenvolvido a partir de erros, acertos e validações em obras reais — com foco total em controle, previsibilidade e lucro.
+                      Engenheiro Civil com vivência real em campo, especialista em orçamento e gestão de reformas. Criador do{' '}
+                      <span className="text-proobra-orange font-semibold">Método PROOBRA</span>, desenvolvido a partir de erros, acertos e validações em obras reais — com foco total em orçamentos blindados, controle e lucro garantido.
                     </p>
                   </motion.div>
                   
@@ -130,7 +130,7 @@ export default function AboutGabrielProobraSection() {
                   >
                     <div className="absolute top-4 left-4 text-proobra-orange text-4xl opacity-30">"</div>
                     <p className="text-gray-200 font-medium italic text-lg md:text-xl relative z-10 pl-8">
-                      Aqui não tem teoria distante da realidade. Tudo foi construído no chão da obra.
+                      O método de orçamento que ensino foi construído no chão da obra. Cada erro virou aprendizado, cada acerto virou processo.
                     </p>
                     <div className="absolute bottom-4 right-4 text-proobra-orange text-4xl opacity-30">"</div>
                   </motion.div>

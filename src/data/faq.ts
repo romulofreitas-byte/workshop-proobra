@@ -9,22 +9,32 @@ export const faqItems: FAQItem[] = [
   {
     question: 'E se eu não puder assistir no horário?',
     answer:
-      'O workshop acontece exclusivamente ao vivo no horário agendado. Recomendamos garantir sua presença para aproveitar ao máximo a interação e tirar suas dúvidas em tempo real.',
+      'O workshop acontece exclusivamente ao vivo no horário agendado. Recomendamos garantir sua presença para aproveitar ao máximo a interação, o exercício prático e tirar suas dúvidas em tempo real.',
+  },
+  {
+    question: 'Preciso saber usar Google Planilhas?',
+    answer:
+      'Conhecimento básico ajuda, mas não é obrigatório. Recomendamos ter uma conta Google ativa e testar o acesso ao Google Drive e Google Planilhas antes do workshop para participar do exercício prático.',
+  },
+  {
+    question: 'Vou receber alguma planilha no workshop?',
+    answer:
+      'Durante o workshop, você conhecerá a Planilha PROOBRA, uma ferramenta completa para orçar reformas com segurança e controle total. Ela será apresentada em detalhes e haverá uma oferta exclusiva para participantes.',
+  },
+  {
+    question: 'Funciona para reformas residenciais e comerciais?',
+    answer:
+      'Sim! O método de orçamento funciona para qualquer tipo de reforma. É onde a falta de padronização mais gera prejuízo, independente do tamanho ou tipo do projeto.',
   },
   {
     question: 'Preciso ter construtora para participar?',
     answer:
-      'Não. O conteúdo é aplicável para qualquer profissional que gerencia obras, seja engenheiro, arquiteto, empreiteiro ou autônomo.',
-  },
-  {
-    question: 'Funciona para obras pequenas?',
-    answer:
-      'Funciona principalmente nelas. É onde a falta de controle mais gera prejuízo. O método PROOBRA é adaptável a qualquer escala de obra.',
+      'Não. O conteúdo é aplicável para qualquer profissional que orça reformas, seja engenheiro, arquiteto, empreiteiro ou autônomo.',
   },
   {
     question: 'O que vou receber no workshop?',
     answer:
-      'Você receberá acesso ao encontro ao vivo via Google Meet e todo o conhecimento prático do método PROOBRA aplicado à gestão de obras, com interação em tempo real.',
+      'Você receberá acesso ao encontro ao vivo, participará de um exercício prático de orçamento, e terá acesso ao método completo de orçamento blindado do PROOBRA, com interação em tempo real.',
   },
   {
     question: 'Como funciona o acesso ao Google Meet?',

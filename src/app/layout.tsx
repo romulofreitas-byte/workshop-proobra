@@ -25,6 +25,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Gabriel Gelape' }],
   creator: 'Gabriel Gelape',
   publisher: 'Workshop PROOBRA',
+  icons: {
+    icon: '/logo-proobra.png',
+    shortcut: '/logo-proobra.png',
+    apple: '/logo-proobra.png',
+  },
   formatDetection: {
     email: false,
     address: false,

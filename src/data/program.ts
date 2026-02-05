@@ -1,45 +1,62 @@
 export interface ProgramModule {
   key: string
   title: string
+  duration: string
   description: string
   topics: string[]
 }
 
 export const programModules: ProgramModule[] = [
   {
-    key: 'mentalidade',
-    title: 'Chave 1: Mentalidade de Gestor',
+    key: 'conscientizacao',
+    title: 'Bloco 1: A Conscientização',
+    duration: '20 min',
     description:
-      'Como sair da execução cega e assumir o papel de quem controla a obra com visão estratégica.',
+      'Entenda o problema real e a promessa: você vai orçar reformas com tanta segurança que o lucro será garantido.',
     topics: [
-      'Mudança de mindset: de executor para gestor',
-      'Visão estratégica da obra',
-      'Controle proativo vs. reativo',
-      'Tomada de decisão baseada em dados',
+      'Introdução impactante e contextualização do universo de reformas',
+      'A dor do mercado: insegurança e falta de padronização',
+      'O verdadeiro objetivo do orçamento além de passar preço',
+      'Expectativa vs. realidade: o alinhamento essencial',
     ],
   },
   {
-    key: 'controle',
-    title: 'Chave 2: Controle que Evita Prejuízo',
+    key: 'ciencia',
+    title: 'Bloco 2: A Ciência do Orçamento',
+    duration: '40 min',
     description:
-      'O que precisa estar organizado antes da obra começar e como evitar perdas invisíveis que matam o lucro.',
+      'O conceito por trás do método: como transformar demanda em serviços executáveis e orçáveis.',
     topics: [
-      'Estruturação antes da obra começar',
-      'Controle de custos desde o início',
-      'Identificação de perdas invisíveis',
-      'Proteção do lucro em cada etapa',
+      'Importância das visitas técnicas e coleta de informações',
+      'Transformando demanda do cliente em serviços executáveis',
+      'Elementos básicos do orçamento blindado (serviço, material, preço)',
+      'Fluxograma do Método de Orçamento PROOBRA',
     ],
   },
   {
-    key: 'metodo',
-    title: 'Chave 3: Método que Sustenta Crescimento',
+    key: 'pratica',
+    title: 'Bloco 3: O Choque de Realidade',
+    duration: '30 min',
     description:
-      'Como estruturar um processo replicável, que gera previsibilidade e confiança.',
+      'Exercício prático ao vivo: monte uma tabela de orçamento em 10 minutos e descubra onde estão as falhas.',
     topics: [
-      'Processo replicável e estruturado',
-      'Geração de previsibilidade',
-      'Construção de confiança com clientes',
-      'Escalabilidade do método',
+      'Exercício dinâmico ao vivo: orçamento de banheiro',
+      'Discussão das dificuldades encontradas pelos participantes',
+      'Análise dos resultados e pontos de insegurança',
+      'A prova da necessidade de um método blindado',
+    ],
+  },
+  {
+    key: 'solucao',
+    title: 'Bloco 4: A Solução Definitiva',
+    duration: '30 min',
+    description:
+      'Resultados além do preço final e apresentação da Planilha PROOBRA como ferramenta essencial.',
+    topics: [
+      'Custo por item de serviço, prestador e classe de materiais',
+      'Visão 360° do orçamento: controle total',
+      'Demonstração da Planilha PROOBRA na prática',
+      'Oferta exclusiva para participantes do workshop',
     ],
   },
 ]

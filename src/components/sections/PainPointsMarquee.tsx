@@ -1,12 +1,12 @@
 'use client'
 
 const painPoints = [
-  'Orçamentos feitos no achismo',
-  'Custos que aparecem tarde demais',
-  'Falta de clareza para explicar números ao cliente',
-  'Lucro corroído por pequenos erros acumulados',
-  'Decisões tomadas no escuro',
-  'Falta de controle real sobre a obra',
+  'Insegurança ao passar orçamento',
+  'Falta de padronização para orçar',
+  'Variáveis infinitas nas reformas',
+  'Medo de esquecer algo crucial',
+  'Orçamento só para passar preço',
+  'Lucro que vira surpresa negativa',
 ]
 
 export default function PainPointsMarquee() {

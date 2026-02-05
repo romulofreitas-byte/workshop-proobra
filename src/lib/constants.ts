@@ -1,6 +1,6 @@
 export const WORKSHOP_INFO = {
-  title: 'WORKSHOP PROOBRA | MÉTODO DE GESTÃO LUCRATIVA DE OBRAS',
-  subtitle: 'O método que transforma execução de obra em gestão lucrativa',
+  title: 'ORÇAMENTO BLINDADO | WORKSHOP PROOBRA',
+  subtitle: 'Como orçar reformas com 100% de segurança e lucro garantido',
   date: '[DATA DO WORKSHOP]', // Atualizar com data real
   dateObj: new Date(), // Atualizar com data real
   time: '[HORÁRIO]', // Ex: "19:00"

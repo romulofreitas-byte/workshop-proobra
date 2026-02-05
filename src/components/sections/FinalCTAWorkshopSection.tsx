@@ -24,9 +24,9 @@ export default function FinalCTAWorkshopSection() {
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6 }}
         >
-          Você pode continuar executando obras…
+          Você pode continuar orçando no achismo…
           <br />
-          <span className="highlight-text-glow">ou começar a gerenciar com método.</span>
+          <span className="highlight-text-glow">ou começar a blindar seus orçamentos.</span>
         </motion.h2>
 
         <motion.p 
@@ -36,7 +36,7 @@ export default function FinalCTAWorkshopSection() {
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          PROOBRA não é sobre fazer mais obras. É sobre ganhar dinheiro com as que você já faz.
+          Adquira a segurança de orçar reformas com lucro garantido, não uma surpresa.
         </motion.p>
 
         <motion.div 

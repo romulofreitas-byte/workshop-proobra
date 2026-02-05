@@ -18,10 +18,10 @@ export default function EventDetailsSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Workshop PROOBRA
+            Workshop Orçamento Blindado
           </h2>
           <p className="text-xl text-gray-200">
-            As 3 chaves para assumir o controle da sua obra
+            Como orçar reformas com 100% de segurança e lucro garantido
           </p>
         </motion.div>
 

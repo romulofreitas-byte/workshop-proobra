@@ -4,9 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import Section from '@/components/ui/Section'
 import { programModules } from '@/data/program'
-import { Key, Target, TrendingUp, ChevronDown } from 'lucide-react'
+import { Lightbulb, BookOpen, Zap, Gift, ChevronDown, Clock } from 'lucide-react'
 
-const icons = [Key, Target, TrendingUp]
+const icons = [Lightbulb, BookOpen, Zap, Gift]
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -45,12 +45,12 @@ export default function WhatYouWillLearnSection() {
             O que você vai aprender
           </h2>
           <p className="text-lg md:text-xl text-gray-300/90 max-w-2xl mx-auto font-light">
-            Três chaves fundamentais para transformar sua gestão de obras
+            4 blocos práticos para blindar seus orçamentos de reformas
           </p>
         </motion.div>
 
         <motion.div 
-          className="grid md:grid-cols-3 gap-6 md:gap-8"
+          className="grid md:grid-cols-2 gap-6 md:gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -114,10 +114,16 @@ export default function WhatYouWillLearnSection() {
                       </div>
                     </motion.div>
 
-                    {/* Title */}
-                    <h3 className="text-lg md:text-2xl font-bold text-white mb-2 md:mb-3 tracking-tight">
-                      {module.title}
-                    </h3>
+                    {/* Title and Duration */}
+                    <div className="flex items-start justify-between gap-2 mb-2 md:mb-3">
+                      <h3 className="text-lg md:text-xl font-bold text-white tracking-tight">
+                        {module.title}
+                      </h3>
+                      <span className="flex items-center gap-1 text-xs text-proobra-orange bg-proobra-orange/10 px-2 py-1 rounded-full whitespace-nowrap">
+                        <Clock className="w-3 h-3" />
+                        {module.duration}
+                      </span>
+                    </div>
 
                     {/* Description */}
                     <p className="text-gray-300/80 mb-4 md:mb-6 text-sm md:text-base leading-relaxed font-light">

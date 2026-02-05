@@ -40,7 +40,7 @@ export default function HeroSectionWorkshop() {
   }
 
   return (
-    <section className="relative overflow-hidden flex flex-col bg-gray-900 h-screen">
+    <section className="relative overflow-hidden flex flex-col bg-gray-900 min-h-screen lg:h-screen">
       
       {/* Header */}
       <div className="relative z-10 border-b border-gray-800">
@@ -48,13 +48,13 @@ export default function HeroSectionWorkshop() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1.5 sm:gap-2">
               <ProtectedImage
-                src="/icon-proobra.png"
+                src="/logo-proobra.png"
                 alt="PROOBRA"
-                width={28}
+                width={100}
                 height={28}
-                className="w-5 h-5 sm:w-7 sm:h-7"
+                className="h-5 sm:h-7 w-auto"
               />
-              <span className="text-white text-[10px] sm:text-sm">Workshop PROOBRA</span>
+              <span className="text-white text-[10px] sm:text-sm">Workshop Orçamento Blindado</span>
             </div>
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="flex items-center gap-1.5 sm:gap-2">
@@ -70,60 +70,59 @@ export default function HeroSectionWorkshop() {
         </div>
       </div>
 
-      {/* Badge acima da imagem - Mobile */}
-      <motion.div 
-        className="px-4 pt-4 pb-2 text-center lg:hidden"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-      >
-        <div className="inline-flex items-center px-2 py-1 bg-gradient-to-r from-proobra-orange/30 to-proobra-orange/20 border border-proobra-orange/50 rounded-full backdrop-blur-sm shadow-lg">
-          <span className="text-proobra-orange font-semibold text-[10px]">
-            2 horas • Google Meet • Ao vivo
-          </span>
-        </div>
-      </motion.div>
-
-      {/* Imagem Mobile */}
-      <div className="relative w-full lg:hidden" style={{ height: '50vh', minHeight: '350px' }}>
-        <div className="absolute inset-0 bg-gray-900">
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/60 via-gray-900/40 to-transparent"></div>
+      {/* Mobile Layout - Background que cobre até o marquee */}
+      <div className="relative flex-1 lg:hidden">
+        {/* Imagem Mobile - Background absoluto */}
+        <div className="absolute inset-0" style={{ top: '-50px' }}>
           <ProtectedImage
-            src="/gabriel-gelape.jpg"
+            src="/gabriel-hero-mobile2.png"
             alt={WORKSHOP_INFO.mentor}
             fill
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-cover object-top z-0"
             priority
           />
         </div>
-      </div>
 
-      {/* Conteúdo Mobile */}
-      <motion.div 
-        className="px-4 pb-4 lg:hidden flex-1 flex flex-col justify-center overflow-y-auto" 
-        style={{ marginTop: '-60px' }}
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <div className="max-w-md mx-auto text-center space-y-4">
+        {/* Badge acima da imagem - Mobile */}
+        <motion.div 
+          className="px-4 pt-4 pb-2 text-center relative z-20"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="inline-flex items-center px-2 py-1 bg-gradient-to-r from-proobra-orange/30 to-proobra-orange/20 border border-proobra-orange/50 rounded-full backdrop-blur-sm shadow-lg">
+            <span className="text-proobra-orange font-semibold text-[10px]">
+              2 horas • Google Meet • Ao vivo
+            </span>
+          </div>
+        </motion.div>
+
+        {/* Conteúdo Mobile */}
+        <motion.div 
+          className="px-4 pb-6 flex flex-col justify-end relative z-20 flex-1"
+          style={{ paddingTop: '45vh' }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+        <div className="max-w-md mx-auto text-center space-y-3">
           <motion.h1 
             className="text-[17px] sm:text-xl font-black leading-tight"
             variants={itemVariants}
           >
-            A sua obra não deve ser um{' '}
-            <span className="highlight-text-glow">caos</span>.
+            Aprenda a orçar reformas com tanta{' '}
+            <span className="highlight-text-glow">segurança</span>
             <br />
-            Ela deve ser previsível, controlada e{' '}
-            <span className="highlight-text-glow">lucrativa</span>.
+            que o lucro será{' '}
+            <span className="highlight-text-glow">garantido</span>.
           </motion.h1>
           
           <motion.p 
             className="text-[11px] text-gray-200"
             variants={itemVariants}
           >
-            Neste workshop ao vivo, você vai entender como engenheiros e profissionais da construção estão saindo do improviso e assumindo o controle real das suas obras.
+            Neste workshop ao vivo, você vai aprender o método que transforma insegurança em controle total na hora de orçar suas reformas.
           </motion.p>
 
           {/* Preço Mobile */}
@@ -173,15 +172,27 @@ export default function HeroSectionWorkshop() {
             </div>
           </motion.div>
         </div>
-      </motion.div>
+        </motion.div>
+      </div>
 
       {/* Layout Desktop */}
-      <div className="hidden lg:flex container-custom relative z-30 flex-1 items-center justify-center py-12 min-h-0">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
-          
-          {/* Coluna Esquerda - Texto */}
+      <div className="hidden lg:block relative flex-1">
+        {/* Imagem Desktop - Full Screen Background */}
+        <div className="absolute inset-0">
+          <ProtectedImage
+            src="/gabriel-hero-desktop3.png"
+            alt={WORKSHOP_INFO.mentor}
+            fill
+            sizes="100vw"
+            className="object-cover object-top"
+            priority
+          />
+        </div>
+        
+        {/* Conteúdo sobreposto */}
+        <div className="container-custom relative z-30 h-full flex items-center py-12">
           <motion.div 
-            className="max-w-2xl text-left relative z-30"
+            className="max-w-xl text-left"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -196,21 +207,21 @@ export default function HeroSectionWorkshop() {
             </motion.div>
 
             <motion.h1 
-              className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl font-black leading-tight mb-4"
+              className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-black leading-tight mb-4"
               variants={itemVariants}
             >
-              A sua obra não deve ser um{' '}
-              <span className="highlight-text-glow">caos</span>.
+              Aprenda a orçar reformas com tanta{' '}
+              <span className="highlight-text-glow">segurança</span>
               <br />
-              Ela deve ser previsível, controlada e{' '}
-              <span className="highlight-text-glow">lucrativa</span>.
+              que o lucro será{' '}
+              <span className="highlight-text-glow">garantido</span>.
             </motion.h1>
             
             <motion.p 
               className="text-[13px] sm:text-sm text-gray-200 mb-6"
               variants={itemVariants}
             >
-              Neste workshop ao vivo, você vai entender como engenheiros e profissionais da construção estão saindo do improviso e assumindo o controle real das suas obras.
+              Neste workshop ao vivo, você vai aprender o método que transforma insegurança em controle total na hora de orçar suas reformas.
             </motion.p>
 
             {/* Preço Desktop */}
@@ -246,7 +257,7 @@ export default function HeroSectionWorkshop() {
 
             {/* Barra de Progresso Desktop */}
             <motion.div 
-              className="space-y-2"
+              className="space-y-2 max-w-md"
               variants={itemVariants}
             >
               <div className="flex items-center justify-between text-xs text-gray-200">
@@ -264,37 +275,6 @@ export default function HeroSectionWorkshop() {
               </div>
             </motion.div>
           </motion.div>
-
-          {/* Coluna Direita - Imagem Desktop */}
-          <motion.div 
-            className="hidden lg:flex justify-end items-end -mb-32"
-            style={{ marginTop: '-120px' }}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <motion.div 
-              className="relative"
-              animate={{ 
-                y: [0, -10, 0],
-              }}
-              transition={{ 
-                duration: 6,
-                repeat: Infinity,
-                ease: 'easeInOut'
-              }}
-            >
-              <ProtectedImage
-                src="/gabriel-gelape.jpg"
-                alt={WORKSHOP_INFO.mentor}
-                width={800}
-                height={1000}
-                className="max-w-[70rem] h-auto object-contain"
-                priority
-              />
-            </motion.div>
-          </motion.div>
-
         </div>
       </div>
 

@@ -12,6 +12,7 @@ interface ProtectedImageProps {
   priority?: boolean
   fill?: boolean
   sizes?: string
+  wrapperClassName?: string
 }
 
 export default function ProtectedImage({
@@ -23,6 +24,7 @@ export default function ProtectedImage({
   priority = false,
   fill = false,
   sizes,
+  wrapperClassName,
 }: ProtectedImageProps) {
   const handleContextMenu = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -34,14 +36,14 @@ export default function ProtectedImage({
 
   if (fill) {
     return (
-      <div className={cn('relative', className)}>
+      <div className={cn('relative w-full h-full', wrapperClassName)}>
         <Image
           src={src}
           alt={alt}
           fill
           sizes={sizes || '100vw'}
           priority={priority}
-          className="protected-image"
+          className={cn('protected-image', className)}
           onContextMenu={handleContextMenu}
           onDragStart={handleDragStart}
         />
