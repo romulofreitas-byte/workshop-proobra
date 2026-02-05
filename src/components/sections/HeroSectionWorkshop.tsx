@@ -75,7 +75,7 @@ export default function HeroSectionWorkshop() {
         {/* Imagem Mobile - Background absoluto */}
         <div className="absolute inset-0" style={{ top: '-50px' }}>
           <ProtectedImage
-            src="/gabriel-hero-mobile2.png"
+            src="/gabriel-hero-mobile4.png"
             alt={WORKSHOP_INFO.mentor}
             fill
             sizes="100vw"
@@ -180,7 +180,7 @@ export default function HeroSectionWorkshop() {
         {/* Imagem Desktop - Full Screen Background */}
         <div className="absolute inset-0">
           <ProtectedImage
-            src="/gabriel-hero-desktop3.png"
+            src="/gabriel-hero-desktop4.png"
             alt={WORKSHOP_INFO.mentor}
             fill
             sizes="100vw"
