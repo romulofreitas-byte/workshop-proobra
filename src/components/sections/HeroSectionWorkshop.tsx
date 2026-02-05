@@ -180,7 +180,7 @@ export default function HeroSectionWorkshop() {
         {/* Imagem Desktop - Full Screen Background */}
         <div className="absolute inset-0">
           <ProtectedImage
-            src="/gabriel-hero-desktop4.png"
+            src="/gabriel-hero-desktop5.png"
             alt={WORKSHOP_INFO.mentor}
             fill
             sizes="100vw"
