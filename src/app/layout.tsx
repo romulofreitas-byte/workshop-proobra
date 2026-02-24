@@ -19,12 +19,12 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'Workshop PROOBRA | Gestão Lucrativa de Obras',
+  title: 'Workshop Orçamento de Aço | Gestão Lucrativa de Obras',
   description: 'Aprenda o método que transforma execução de obra em gestão lucrativa. Controle custos, tome decisões com segurança e proteja seu lucro antes, durante e depois da obra.',
   keywords: 'gestão de obras, controle de custos, método PROOBRA, engenharia civil, gestão lucrativa, orçamento de obra',
   authors: [{ name: 'Gabriel Gelape' }],
   creator: 'Gabriel Gelape',
-  publisher: 'Workshop PROOBRA',
+  publisher: 'Workshop Orçamento de Aço',
   icons: {
     icon: '/logo-proobra.png',
     shortcut: '/logo-proobra.png',
@@ -37,16 +37,16 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3002'),
   openGraph: {
-    title: 'Workshop PROOBRA | Gestão Lucrativa de Obras',
+    title: 'Workshop Orçamento de Aço | Gestão Lucrativa de Obras',
     description: 'O método que transforma execução de obra em gestão lucrativa. Workshop ao vivo de 2 horas.',
     url: '/',
-    siteName: 'Workshop PROOBRA',
+    siteName: 'Workshop Orçamento de Aço',
     images: [
       {
         url: '/workshop-proobra.png',
         width: 1200,
         height: 630,
-        alt: 'Workshop PROOBRA',
+        alt: 'Workshop Orçamento de Aço',
       },
     ],
     locale: 'pt_BR',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Workshop PROOBRA | Gestão Lucrativa de Obras',
+    title: 'Workshop Orçamento de Aço | Gestão Lucrativa de Obras',
     description: 'O método que transforma execução de obra em gestão lucrativa.',
     images: ['/workshop-proobra.png'],
   },

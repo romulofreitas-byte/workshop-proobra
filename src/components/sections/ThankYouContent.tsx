@@ -143,7 +143,7 @@ export default function ThankYouContent() {
               height={32}
               className="w-6 h-6 sm:w-8 sm:h-8"
             />
-            <span className="text-white text-sm sm:text-base font-medium">Workshop Orçamento Blindado</span>
+            <span className="text-white text-sm sm:text-base font-medium">Workshop Orçamento de Aço</span>
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@ export default function EventDetailsSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Workshop Orçamento Blindado
+            Workshop Orçamento de Aço
           </h2>
           <p className="text-xl text-gray-200">
             Como orçar reformas com 100% de segurança e lucro garantido

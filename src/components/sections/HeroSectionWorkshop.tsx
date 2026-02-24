@@ -54,7 +54,7 @@ export default function HeroSectionWorkshop() {
                 height={28}
                 className="h-5 sm:h-7 w-auto"
               />
-              <span className="text-white text-[10px] sm:text-sm">Workshop Orçamento Blindado</span>
+              <span className="text-white text-[10px] sm:text-sm">Workshop Orçamento de Aço</span>
             </div>
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="flex items-center gap-1.5 sm:gap-2">

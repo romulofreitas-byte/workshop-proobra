@@ -11,7 +11,7 @@ export default function WorkshopFAQSection() {
             Perguntas Frequentes
           </h2>
           <p className="text-lg text-gray-200">
-            Tire suas dúvidas sobre o Workshop PROOBRA
+            Tire suas dúvidas sobre o Workshop Orçamento de Aço
           </p>
         </div>
 

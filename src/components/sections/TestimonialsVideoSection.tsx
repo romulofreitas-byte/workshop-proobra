@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Section from '@/components/ui/Section'
-import VideoModal from '@/components/ui/VideoModal'
+import ProtectedImage from '@/components/ui/ProtectedImage'
 
 export default function TestimonialsVideoSection() {
   return (
@@ -16,10 +16,10 @@ export default function TestimonialsVideoSection() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Aula de Apresentação do Método PROOBRA
+            Resumo do Método Orçamento de Aço
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Descubra como transformar a gestão da sua obra e proteger seu lucro
+            Entenda de forma visual como funciona o método para orçar com segurança e lucro.
           </p>
         </motion.div>
 
@@ -30,12 +30,15 @@ export default function TestimonialsVideoSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="flex justify-center"
         >
-          <VideoModal
-            thumbnail="/workshop-proobra.png"
-            videoId="adOVI5Y9aSE"
-            title="Aula de Apresentação do Método PROOBRA"
-            className="w-full max-w-4xl"
-          />
+          <div className="w-full max-w-4xl bg-gray-800/50 border border-gray-700 rounded-2xl p-3 sm:p-4">
+            <ProtectedImage
+              src="/metodo-orcamento-aco.jpeg"
+              alt="Resumo do método Orçamento de Aço"
+              width={1600}
+              height={900}
+              className="w-full h-auto rounded-xl"
+            />
+          </div>
         </motion.div>
       </div>
     </Section>

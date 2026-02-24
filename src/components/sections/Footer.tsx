@@ -11,7 +11,7 @@ export default function Footer() {
           </p>
           <div className="border-t border-gray-800 pt-6">
             <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} Workshop PROOBRA. Todos os direitos reservados.
+              © {new Date().getFullYear()} Workshop Orçamento de Aço. Todos os direitos reservados.
             </p>
             <p className="text-gray-500 text-sm mt-2">
               Criado por {WORKSHOP_INFO.mentor}
