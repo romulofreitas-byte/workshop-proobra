@@ -1,9 +1,9 @@
 export const WORKSHOP_INFO = {
   title: 'ORÇAMENTO BLINDADO | WORKSHOP PROOBRA',
   subtitle: 'Como orçar reformas com 100% de segurança e lucro garantido',
-  date: '[DATA DO WORKSHOP]', // Atualizar com data real
-  dateObj: new Date(), // Atualizar com data real
-  time: '[HORÁRIO]', // Ex: "19:00"
+  date: '07/03',
+  dateObj: new Date('2026-03-07T10:00:00-03:00'),
+  time: '10h',
   timezone: 'America/Sao_Paulo',
   duration: '2 horas',
   format: 'Online • Ao vivo via Google Meet',

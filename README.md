@@ -100,8 +100,8 @@ Edite `src/lib/constants.ts`:
 ```typescript
 export const WORKSHOP_INFO = {
   title: 'WORKSHOP PROOBRA | MÉTODO DE GESTÃO LUCRATIVA DE OBRAS',
-  date: '[DATA DO WORKSHOP]',
-  time: '[HORÁRIO]',
+  date: '07/03',
+  time: '10h',
   price: 49.99,
   mentor: 'Gabriel Gelape',
   // ...
