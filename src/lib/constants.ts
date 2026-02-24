@@ -1,5 +1,5 @@
 export const WORKSHOP_INFO = {
-  title: 'ORÇAMENTO BLINDADO | WORKSHOP PROOBRA',
+  title: 'ORÇAMENTO DE AÇO | WORKSHOP PROOBRA',
   subtitle: 'Como orçar reformas com 100% de segurança e lucro garantido',
   date: '07/03',
   dateObj: new Date('2026-03-07T10:00:00-03:00'),
