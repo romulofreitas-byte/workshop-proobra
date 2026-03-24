@@ -14,10 +14,10 @@ import {
   Brain,
   Sparkles,
   Calendar,
-  Clock,
-  Mail
+  Mail,
+  MessageCircle
 } from 'lucide-react'
-import { WORKSHOP_INFO } from '@/lib/constants'
+import { WORKSHOP_SESSIONS } from '@/lib/constants'
 import ProtectedImage from '@/components/ui/ProtectedImage'
 
 const containerVariants = {
@@ -185,8 +185,14 @@ export default function ThankYouContent() {
                 transition={{ delay: 0.3 }}
               >
                 <Calendar className="w-6 h-6 text-proobra-orange mx-auto mb-2" />
-                <p className="text-sm text-gray-400">Data</p>
-                <p className="text-white font-semibold">{WORKSHOP_INFO.date}</p>
+                <p className="text-sm text-gray-400 mb-2">Turmas disponíveis</p>
+                <div className="space-y-1">
+                  {WORKSHOP_SESSIONS.map((session) => (
+                    <p key={session.id} className="text-white font-semibold text-sm">
+                      {session.fullLabel}
+                    </p>
+                  ))}
+                </div>
               </motion.div>
               
               <motion.div 
@@ -195,9 +201,9 @@ export default function ThankYouContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <Clock className="w-6 h-6 text-proobra-blue-light mx-auto mb-2" />
-                <p className="text-sm text-gray-400">Horário</p>
-                <p className="text-white font-semibold">{WORKSHOP_INFO.time}</p>
+                <Mail className="w-6 h-6 text-green-500 mx-auto mb-2" />
+                <p className="text-sm text-gray-400">Link de Acesso</p>
+                <p className="text-white font-semibold">Enviado por e-mail</p>
               </motion.div>
               
               <motion.div 
@@ -206,9 +212,11 @@ export default function ThankYouContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <Mail className="w-6 h-6 text-green-500 mx-auto mb-2" />
-                <p className="text-sm text-gray-400">Link de Acesso</p>
-                <p className="text-white font-semibold">Enviado por e-mail</p>
+                <MessageCircle className="w-6 h-6 text-proobra-blue-light mx-auto mb-2" />
+                <p className="text-sm text-gray-400">Aviso importante</p>
+                <p className="text-white font-semibold text-sm">
+                  Após a compra, o Gabriel entrará em contato para enviar os documentos e links do Workshop.
+                </p>
               </motion.div>
             </div>
           </motion.div>

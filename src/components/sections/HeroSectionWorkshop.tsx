@@ -1,14 +1,16 @@
 'use client'
 
+import { useState } from 'react'
 import { ArrowRight, Calendar, Clock } from 'lucide-react'
 import { motion } from 'framer-motion'
 import PainPointsMarquee from './PainPointsMarquee'
-import { WORKSHOP_INFO } from '@/lib/constants'
+import { WORKSHOP_INFO, WORKSHOP_SESSIONS } from '@/lib/constants'
 import { trackCTAClick } from '@/lib/metaPixel'
 import ProtectedImage from '@/components/ui/ProtectedImage'
 
 export default function HeroSectionWorkshop() {
   const PAYMENT_LINK = 'https://pag.ae/81scCkfpp'
+  const [selectedSessionId, setSelectedSessionId] = useState<string | null>(null)
   
   const handleCTAClick = () => {
     trackCTAClick('Hero - Garanta sua vaga')
@@ -38,6 +40,32 @@ export default function HeroSectionWorkshop() {
       },
     },
   }
+
+  const renderSessionSelector = (compact = false) => (
+    <div className={compact ? 'space-y-2' : 'space-y-2.5'}>
+      <p className="text-[11px] sm:text-xs text-gray-300">Escolha sua turma</p>
+      <div className="flex flex-wrap gap-2">
+        {WORKSHOP_SESSIONS.map((session) => {
+          const isSelected = selectedSessionId === session.id
+          return (
+            <button
+              key={session.id}
+              type="button"
+              aria-pressed={isSelected}
+              onClick={() => setSelectedSessionId(session.id)}
+              className={`rounded-full border px-3 py-1 text-[11px] sm:text-xs font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-proobra-orange/70 ${
+                isSelected
+                  ? 'border-proobra-orange/80 bg-proobra-orange/20 text-white'
+                  : 'border-gray-600/80 bg-gray-800/70 text-gray-300 hover:border-proobra-blue-light/60 hover:text-white'
+              }`}
+            >
+              {session.fullLabel}
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
 
   return (
     <section className="relative overflow-hidden flex flex-col bg-gray-900 min-h-screen lg:h-screen">
@@ -124,6 +152,10 @@ export default function HeroSectionWorkshop() {
           >
             Neste workshop ao vivo, você vai aprender o método que transforma insegurança em controle total na hora de orçar suas reformas.
           </motion.p>
+
+          <motion.div variants={itemVariants}>
+            {renderSessionSelector(true)}
+          </motion.div>
 
           {/* Preço Mobile */}
           <motion.div 
@@ -223,6 +255,10 @@ export default function HeroSectionWorkshop() {
             >
               Neste workshop ao vivo, você vai aprender o método que transforma insegurança em controle total na hora de orçar suas reformas.
             </motion.p>
+
+            <motion.div className="mb-6" variants={itemVariants}>
+              {renderSessionSelector()}
+            </motion.div>
 
             {/* Preço Desktop */}
             <motion.div 

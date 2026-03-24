@@ -3,8 +3,8 @@
 import { motion } from 'framer-motion'
 import Section from '@/components/ui/Section'
 import Card from '@/components/ui/Card'
-import { Calendar, Clock, Video, Users } from 'lucide-react'
-import { WORKSHOP_INFO } from '@/lib/constants'
+import { Calendar, Clock, Video, MessageCircle } from 'lucide-react'
+import { WORKSHOP_INFO, WORKSHOP_SESSIONS } from '@/lib/constants'
 
 export default function EventDetailsSection() {
   return (
@@ -86,10 +86,23 @@ export default function EventDetailsSection() {
                     <Calendar className="w-6 h-6 text-proobra-blue-light mt-1 flex-shrink-0" />
                   </motion.div>
                   <div>
-                    <h3 className="font-semibold text-white mb-1">Data e Horário</h3>
-                    <p className="text-gray-300">
-                      {WORKSHOP_INFO.date} às {WORKSHOP_INFO.time}
-                    </p>
+                    <h3 className="font-semibold text-white mb-3">Escolha sua turma</h3>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      {WORKSHOP_SESSIONS.map((session, index) => (
+                        <motion.div
+                          key={session.id}
+                          className="rounded-lg border border-proobra-blue-light/40 bg-proobra-blue-dark/20 p-3 text-center"
+                          initial={{ opacity: 0, y: 12 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.35, delay: 0.55 + index * 0.1 }}
+                          whileHover={{ y: -2, scale: 1.01 }}
+                        >
+                          <p className="text-sm text-gray-300">Turma {index + 1}</p>
+                          <p className="text-base font-semibold text-white">{session.fullLabel}</p>
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               </div>
@@ -107,6 +120,22 @@ export default function EventDetailsSection() {
                   <p className="text-sm text-gray-200">
                     O link de acesso será enviado por e-mail após a inscrição. Em caso de dúvidas, entre em contato com o Gabriel.
                   </p>
+                </motion.div>
+
+                <motion.div
+                  className="bg-proobra-orange/10 rounded-lg p-4 border border-proobra-orange/40 backdrop-blur-sm"
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  whileHover={{ scale: 1.02, y: -2 }}
+                >
+                  <div className="flex items-start gap-3">
+                    <MessageCircle className="w-5 h-5 text-proobra-orange mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-gray-100">
+                      Importante: após a compra, o Gabriel entrará em contato para enviar os documentos e links do Workshop.
+                    </p>
+                  </div>
                 </motion.div>
 
               </div>
