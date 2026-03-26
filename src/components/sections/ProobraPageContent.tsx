@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { ModalProvider } from '@/contexts/ModalContext'
 import HeroSectionWorkshop from './HeroSectionWorkshop'
 import TestimonialsVideoSection from './TestimonialsVideoSection'
@@ -15,20 +15,10 @@ import WorkshopFAQSection from './WorkshopFAQSection'
 import Footer from './Footer'
 import VslIntroPopup from '@/components/ui/VslIntroPopup'
 
-const VSL_INTRO_SESSION_KEY = 'proobra-vsl-intro-seen'
-
 export default function ProobraPageContent() {
   const [isVslOpen, setIsVslOpen] = useState(true)
 
-  useEffect(() => {
-    const wasAlreadyShown = sessionStorage.getItem(VSL_INTRO_SESSION_KEY) === '1'
-    if (wasAlreadyShown) {
-      setIsVslOpen(false)
-    }
-  }, [])
-
   const handleCloseVsl = () => {
-    sessionStorage.setItem(VSL_INTRO_SESSION_KEY, '1')
     setIsVslOpen(false)
   }
 
