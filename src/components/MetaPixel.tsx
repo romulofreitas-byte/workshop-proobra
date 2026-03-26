@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import Script from 'next/script'
 
 export default function MetaPixel() {
-  const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID
+  const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID || '923776500535473'
 
   if (!pixelId) {
     return null
