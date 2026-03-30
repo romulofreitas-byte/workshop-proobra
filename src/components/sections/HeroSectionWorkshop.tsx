@@ -5,7 +5,7 @@ import { ArrowRight, Calendar, Clock } from 'lucide-react'
 import { motion } from 'framer-motion'
 import PainPointsMarquee from './PainPointsMarquee'
 import { WORKSHOP_INFO, WORKSHOP_SESSIONS } from '@/lib/constants'
-import { trackCTAClick } from '@/lib/metaPixel'
+import { trackInitiateCheckoutCTA } from '@/lib/metaPixel'
 import ProtectedImage from '@/components/ui/ProtectedImage'
 
 export default function HeroSectionWorkshop() {
@@ -13,7 +13,7 @@ export default function HeroSectionWorkshop() {
   const [selectedSessionId, setSelectedSessionId] = useState<string | null>(null)
   
   const handleCTAClick = () => {
-    trackCTAClick('Hero - Garanta sua vaga')
+    trackInitiateCheckoutCTA('Hero - Garanta sua vaga')
   }
 
   const progressPercentage = 18

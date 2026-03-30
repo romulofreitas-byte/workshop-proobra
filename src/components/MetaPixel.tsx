@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect } from 'react'
 import Script from 'next/script'
 
 export default function MetaPixel() {
@@ -10,13 +9,14 @@ export default function MetaPixel() {
     return null
   }
 
+  // Sem <noscript><img …></noscript>: evita preload da URL do pixel e avisos no console;
+  // o PageView já é disparado via fbevents.js quando JS está ativo.
   return (
-    <>
-      <Script
-        id="meta-pixel"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
+    <Script
+      id="meta-pixel"
+      strategy="afterInteractive"
+      dangerouslySetInnerHTML={{
+        __html: `
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -28,17 +28,7 @@ export default function MetaPixel() {
             fbq('init', '${pixelId}');
             fbq('track', 'PageView');
           `,
-        }}
-      />
-      <noscript>
-        <img
-          height="1"
-          width="1"
-          style={{ display: 'none' }}
-          src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
-          alt=""
-        />
-      </noscript>
-    </>
+      }}
+    />
   )
 }

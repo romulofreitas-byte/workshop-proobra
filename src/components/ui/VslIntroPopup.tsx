@@ -1,12 +1,15 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Volume2, VolumeX, X } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { trackViewContent, trackVslCustom } from '@/lib/metaPixel'
+import { getVslPrimaryAndFallbackSrc } from '@/lib/vslConfig'
 
 interface VslIntroPopupProps {
   isOpen: boolean
   onClose: () => void
+  onCloseMeta?: (meta: { elapsedMs: number; endedNaturally: boolean }) => void
   title: string
   subtitle: string
 }
@@ -16,22 +19,43 @@ const FALLBACK_VIDEO_DURATION_SECONDS = 180
 export default function VslIntroPopup({
   isOpen,
   onClose,
+  onCloseMeta,
   title,
   subtitle,
 }: VslIntroPopupProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null)
   const rafRef = useRef<number | null>(null)
+  const openedAtRef = useRef<number | null>(null)
 
   const [isMuted, setIsMuted] = useState(true)
-  const [duration, setDuration] = useState<number>(0)
   const [progress, setProgress] = useState(0)
+  const [srcPair] = useState(() => getVslPrimaryAndFallbackSrc())
+  const [primarySrc, fallbackSrc] = srcPair
+  const [videoSrc, setVideoSrc] = useState(primarySrc)
+
+  const requestClose = useCallback(
+    (endedNaturally: boolean) => {
+      const start = openedAtRef.current
+      const elapsedMs = start != null ? Date.now() - start : 0
+      onCloseMeta?.({ elapsedMs, endedNaturally })
+      trackVslCustom('Close', {
+        elapsed_ms: elapsedMs,
+        completed_video: endedNaturally,
+      })
+      onClose()
+    },
+    [onClose, onCloseMeta]
+  )
 
   useEffect(() => {
     if (!isOpen) {
+      openedAtRef.current = null
       document.body.style.overflow = 'unset'
       return
     }
 
+    openedAtRef.current = Date.now()
+    trackViewContent('VSL Workshop Intro', 'video')
     document.body.style.overflow = 'hidden'
     return () => {
       document.body.style.overflow = 'unset'
@@ -45,8 +69,8 @@ export default function VslIntroPopup({
         rafRef.current = null
       }
       setProgress(0)
-      setDuration(0)
       setIsMuted(true)
+      setVideoSrc(primarySrc)
       return
     }
 
@@ -55,20 +79,22 @@ export default function VslIntroPopup({
 
     video.currentTime = 0
     video.muted = true
-    video
-      .play()
-      .catch(() => {
-        // Autoplay may fail on some devices; user can still press play manually.
+    const tryPlay = () => {
+      void video.play().catch(() => {
+        // Autoplay pode falhar; o usuário pode usar controles se existirem.
       })
+    }
+    // Um frame após o commit: ref + src estáveis (evita play antes do elemento estar pronto).
+    const rafId = requestAnimationFrame(() => {
+      tryPlay()
+    })
 
     const animateProgress = () => {
       const liveDuration =
         Number.isFinite(video.duration) && video.duration > 0 ? video.duration : 0
-      const baseDuration =
-        liveDuration || duration || FALLBACK_VIDEO_DURATION_SECONDS
+      const baseDuration = liveDuration || FALLBACK_VIDEO_DURATION_SECONDS
       const linear = Math.min(video.currentTime / baseDuration, 1)
 
-      // Strong ease-out curve: starts visibly fast and then decelerates.
       const eased = 1 - Math.pow(1 - linear, 3)
       setProgress(eased)
 
@@ -80,19 +106,20 @@ export default function VslIntroPopup({
     rafRef.current = requestAnimationFrame(animateProgress)
 
     return () => {
+      cancelAnimationFrame(rafId)
       if (rafRef.current !== null) {
         cancelAnimationFrame(rafRef.current)
         rafRef.current = null
       }
     }
-  }, [duration, isOpen])
+  }, [isOpen, primarySrc])
 
   useEffect(() => {
     if (!isOpen) return
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        onClose()
+        requestClose(false)
       }
     }
 
@@ -100,7 +127,7 @@ export default function VslIntroPopup({
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [isOpen, onClose])
+  }, [isOpen, requestClose])
 
   const handleToggleMute = () => {
     const video = videoRef.current
@@ -121,7 +148,7 @@ export default function VslIntroPopup({
       <div className="relative mx-auto flex h-[100svh] w-full max-w-6xl flex-col overflow-hidden px-0 pb-4 pt-4 sm:px-6 sm:pb-6 sm:pt-6">
         <button
           type="button"
-          onClick={onClose}
+          onClick={() => requestClose(false)}
           className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-black/35 text-white hover:bg-black/55"
           aria-label="Fechar vídeo de abertura"
         >
@@ -150,20 +177,19 @@ export default function VslIntroPopup({
         <div className="relative min-h-0 flex-1">
           <div className="relative h-full w-full overflow-hidden rounded-none border border-white/20 sm:rounded-2xl sm:border-white/15">
             <video
+              key={videoSrc}
               ref={videoRef}
-              src="/vsl-workshop.mov"
+              src={videoSrc}
               className="h-full w-full object-contain"
               autoPlay
               muted
               playsInline
               controls={false}
-              preload="metadata"
-              onLoadedMetadata={(event) => {
-                if (Number.isFinite(event.currentTarget.duration)) {
-                  setDuration(event.currentTarget.duration)
-                }
+              preload="auto"
+              onError={() => {
+                setVideoSrc((current) => (current !== fallbackSrc ? fallbackSrc : current))
               }}
-              onEnded={onClose}
+              onEnded={() => requestClose(true)}
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
 
@@ -193,7 +219,7 @@ export default function VslIntroPopup({
 
                 <button
                   type="button"
-                  onClick={onClose}
+                  onClick={() => requestClose(false)}
                   className="group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-white/35 bg-black/50 px-4 py-2 text-xs font-semibold text-white hover:bg-black/65 sm:text-sm"
                   aria-label="Fechar popup de abertura"
                 >

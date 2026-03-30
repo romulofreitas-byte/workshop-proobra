@@ -7,13 +7,13 @@ import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
 import { WORKSHOP_INFO } from '@/lib/constants'
 import { DollarSign, Video, Users, CreditCard, QrCode, FileText } from 'lucide-react'
-import { trackCTAClick } from '@/lib/metaPixel'
+import { trackInitiateCheckoutCTA } from '@/lib/metaPixel'
 
 export default function InvestmentSection() {
   const PAYMENT_LINK = 'https://pag.ae/81scCkfpp'
   
   const handleCTAClick = () => {
-    trackCTAClick('Investment - Garanta sua vaga')
+    trackInitiateCheckoutCTA('Investment - Garanta sua vaga')
     window.open(PAYMENT_LINK, '_blank')
   }
 

@@ -4,13 +4,13 @@ import { motion } from 'framer-motion'
 import Section from '@/components/ui/Section'
 import Button from '@/components/ui/Button'
 import { ArrowRight, Mail, Calendar } from 'lucide-react'
-import { trackCTAClick } from '@/lib/metaPixel'
+import { trackInitiateCheckoutCTA } from '@/lib/metaPixel'
 
 export default function FinalCTAWorkshopSection() {
   const PAYMENT_LINK = 'https://pag.ae/81scCkfpp'
   
   const handleCTAClick = () => {
-    trackCTAClick('Final CTA - Garanta sua vaga')
+    trackInitiateCheckoutCTA('Final CTA - Garanta sua vaga')
     window.open(PAYMENT_LINK, '_blank')
   }
 

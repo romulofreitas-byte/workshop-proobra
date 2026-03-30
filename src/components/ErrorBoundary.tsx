@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { AlertCircle } from 'lucide-react'
+import { reportClientError } from '@/lib/clientErrorReporting'
 
 interface ErrorBoundaryState {
   hasError: boolean
@@ -28,6 +29,11 @@ export class ErrorBoundary extends React.Component<
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     console.error('Error caught by boundary:', error, errorInfo)
+    reportClientError({
+      type: 'react_boundary',
+      message: error.message,
+      stack: `${error.stack}\n${errorInfo.componentStack}`,
+    })
   }
 
   render() {

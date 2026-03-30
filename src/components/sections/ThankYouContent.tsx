@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { 
   CheckCircle, 
@@ -19,6 +20,8 @@ import {
 } from 'lucide-react'
 import { WORKSHOP_SESSIONS } from '@/lib/constants'
 import ProtectedImage from '@/components/ui/ProtectedImage'
+import { trackLeadComplete } from '@/lib/metaPixel'
+import { pushAnalyticsEvent } from '@/lib/analytics'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -129,7 +132,20 @@ const preparationSections = [
   },
 ]
 
+const LEAD_PIXEL_STORAGE = 'proobra_lead_pixel_fired'
+
 export default function ThankYouContent() {
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem(LEAD_PIXEL_STORAGE) === '1') return
+      sessionStorage.setItem(LEAD_PIXEL_STORAGE, '1')
+    } catch {
+      /* sessionStorage unavailable */
+    }
+    trackLeadComplete('Workshop registration confirmed')
+    pushAnalyticsEvent('conversion_primary', { funnel_step: 'thank_you_page' })
+  }, [])
+
   return (
     <main className="min-h-screen bg-gray-900">
       {/* Header */}

@@ -1,43 +1,57 @@
-// Meta Pixel tracking functions
+// Meta Pixel tracking — alinhado ao funil: Lead só após inscrição confirmada (/obrigado).
+
+import { WORKSHOP_INFO } from '@/lib/constants'
 
 declare global {
   interface Window {
-    fbq: (...args: any[]) => void
+    fbq: (...args: unknown[]) => void
   }
 }
 
-export const trackCTAClick = (ctaName: string) => {
-  if (typeof window !== 'undefined' && window.fbq) {
-    window.fbq('track', 'Lead', {
-      content_name: ctaName,
-      content_category: 'CTA',
-    })
+function fbqSafe(...args: unknown[]) {
+  if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+    window.fbq(...args)
   }
+}
+
+/** Clique em CTA que leva ao checkout externo — não confundir com Lead. */
+export const trackInitiateCheckoutCTA = (ctaName: string) => {
+  fbqSafe('track', 'InitiateCheckout', {
+    value: WORKSHOP_INFO.price,
+    currency: WORKSHOP_INFO.currency,
+    content_name: ctaName,
+    content_category: 'CTA',
+  })
+}
+
+/** Conversão primária: página de obrigado após compra/inscrição. */
+export const trackLeadComplete = (contentName: string = 'Workshop registration confirmed') => {
+  fbqSafe('track', 'Lead', {
+    content_name: contentName,
+    content_category: 'Registration',
+    value: WORKSHOP_INFO.price,
+    currency: WORKSHOP_INFO.currency,
+  })
 }
 
 export const trackViewContent = (contentName: string, contentType: string) => {
-  if (typeof window !== 'undefined' && window.fbq) {
-    window.fbq('track', 'ViewContent', {
-      content_name: contentName,
-      content_type: contentType,
-    })
-  }
+  fbqSafe('track', 'ViewContent', {
+    content_name: contentName,
+    content_type: contentType,
+  })
+}
+
+export const trackVslCustom = (action: string, payload?: Record<string, unknown>) => {
+  fbqSafe('trackCustom', `VSL_${action}`, payload ?? {})
 }
 
 export const trackPurchase = (value: number, currency: string = 'BRL') => {
-  if (typeof window !== 'undefined' && window.fbq) {
-    window.fbq('track', 'Purchase', {
-      value: value,
-      currency: currency,
-    })
-  }
+  fbqSafe('track', 'Purchase', {
+    value,
+    currency,
+  })
 }
 
-export const trackInitiateCheckout = (value: number, currency: string = 'BRL') => {
-  if (typeof window !== 'undefined' && window.fbq) {
-    window.fbq('track', 'InitiateCheckout', {
-      value: value,
-      currency: currency,
-    })
-  }
+export const trackWhatsAppClick = (placement: string = 'floating_fab') => {
+  fbqSafe('trackCustom', 'WhatsAppClick', { placement })
 }
